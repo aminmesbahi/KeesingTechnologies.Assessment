@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31717.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F5E027E5-311D-46C5-890B-753FBF724C3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeesingTechnologies.Assessment.CalendarService.Api", "src\KeesingTechnologies.Assessment.CalendarService.Api\KeesingTechnologies.Assessment.CalendarService.Api.csproj", "{23733AA0-84F8-4F3A-8BC0-E239C1350326}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeesingTechnologies.Assessment.CalendarService.Domain", "src\KeesingTechnologies.Assessment.CalendarService.Domain\KeesingTechnologies.Assessment.CalendarService.Domain.csproj", "{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23733AA0-84F8-4F3A-8BC0-E239C1350326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23733AA0-84F8-4F3A-8BC0-E239C1350326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23733AA0-84F8-4F3A-8BC0-E239C1350326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23733AA0-84F8-4F3A-8BC0-E239C1350326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23733AA0-84F8-4F3A-8BC0-E239C1350326} = {F5E027E5-311D-46C5-890B-753FBF724C3A}
+		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586} = {F5E027E5-311D-46C5-890B-753FBF724C3A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9195BD2-B659-447A-961A-12C8CAFAD7AC}
+	EndGlobalSection
+EndGlobal
