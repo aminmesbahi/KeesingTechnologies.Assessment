@@ -1,11 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using KeesingTechnologies.Assessment.CalendarService.Api.Data;
 using KeesingTechnologies.Assessment.CalendarService.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
 
 namespace KeesingTechnologies.Assessment.CalendarService.Api
@@ -30,8 +37,22 @@ namespace KeesingTechnologies.Assessment.CalendarService.Api
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Keesing Technologies Assessment, Calendar API", Version = "v1", Description = "Amin Mesbahi"});
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Keesing Technologies Assessment, Calendar API", Version = "v1",
+                    Description = "Assessment Project: Calendar API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Amin Mesbahi, github repository:",
+                        Email = string.Empty,
+                        Url = new Uri("https://github.com/aminmesbahi"),
+                    }
+                });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
+            services.AddHttpContextAccessor();
+            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddHealthChecks().AddCheck<EventApiHealthCheker>("example_health_check"); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +76,10 @@ namespace KeesingTechnologies.Assessment.CalendarService.Api
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHealthChecks("/health");
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

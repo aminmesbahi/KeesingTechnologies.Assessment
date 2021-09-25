@@ -12,9 +12,10 @@ namespace KeesingTechnologies.Assessment.CalendarService.Api.Services
         Task<bool> UpdateEventAsync(Guid id, Event newEvent);
 
         Task<IEnumerable<Event>> GetEventsAsync();
-        IEnumerable<Event> GetEventsByOrganizer(string eventOrganizer);
+        Task<IEnumerable<Event>> GetEventsByOrganizerAsync(string eventOrganizer);
         Task<Event> GetEventByIdAsync(Guid id);
+        Task<ICollection<Event>> GetEventsSortedAsync(EventSorts sortOrder);
         bool EventExists(Guid id);
-        bool Save();
+        Task<bool> SaveChangesAsync();
     }
 }

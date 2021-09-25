@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace KeesingTechnologies.Assessment.CalendarService.Api.Services
 {
@@ -57,9 +58,34 @@ namespace KeesingTechnologies.Assessment.CalendarService.Api.Services
             return events;
         }
 
-        public IEnumerable<Event> GetEventsByOrganizer(string eventOrganizer)
+        public async Task<ICollection<Event>> GetEventsSortedAsync(EventSorts sortOrder)
         {
-            return _context.Events.Where(e=>e.EventOrganizer==eventOrganizer).ToList();
+            IQueryable<Event> events = _context.Events;
+            switch (sortOrder)
+            {
+                case EventSorts.ByName:
+                    events = events.OrderBy(e => e.Name).AsQueryable();
+                    break;
+                case EventSorts.ByNameDescending:
+                    events = events.OrderByDescending(e => e.Name).AsQueryable();
+                    break;
+                case EventSorts.ByTime:
+                    events = events.OrderBy(e=>e.Time).AsQueryable();
+                    break;
+                case EventSorts.ByTimeDescending:
+                    events = events.OrderByDescending(e => e.Time).AsQueryable();
+                    break;
+                default:
+                    events = events.OrderBy(e=>e.Id).AsQueryable();
+                    break;
+            }
+            var result = await events.ToListAsync();
+            return result;
+        }
+
+        public async Task<IEnumerable<Event>> GetEventsByOrganizerAsync(string eventOrganizer)
+        {
+            return await _context.Events.Where(e=>e.EventOrganizer==eventOrganizer).ToListAsync();
         }
 
         public async Task<Event> GetEventByIdAsync (Guid id)
