@@ -5,9 +5,13 @@ VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F5E027E5-311D-46C5-890B-753FBF724C3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeesingTechnologies.Assessment.CalendarService.Api", "src\KeesingTechnologies.Assessment.CalendarService.Api\KeesingTechnologies.Assessment.CalendarService.Api.csproj", "{23733AA0-84F8-4F3A-8BC0-E239C1350326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeesingTechnologies.Assessment.CalendarService.Api", "src\KeesingTechnologies.Assessment.CalendarService.Api\KeesingTechnologies.Assessment.CalendarService.Api.csproj", "{23733AA0-84F8-4F3A-8BC0-E239C1350326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeesingTechnologies.Assessment.CalendarService.Domain", "src\KeesingTechnologies.Assessment.CalendarService.Domain\KeesingTechnologies.Assessment.CalendarService.Domain.csproj", "{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeesingTechnologies.Assessment.CalendarService.Domain", "src\KeesingTechnologies.Assessment.CalendarService.Domain\KeesingTechnologies.Assessment.CalendarService.Domain.csproj", "{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{68D7CEF4-260F-4E44-A63B-88913552791A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeesingTechnologies.Assessment.CalendarService.Api.Test", "tests\KeesingTechnologies.Assessment.CalendarService.Api.Test\KeesingTechnologies.Assessment.CalendarService.Api.Test.csproj", "{CE39F4CD-FBA8-4333-8F0F-7D61A4AC5768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE39F4CD-FBA8-4333-8F0F-7D61A4AC5768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE39F4CD-FBA8-4333-8F0F-7D61A4AC5768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE39F4CD-FBA8-4333-8F0F-7D61A4AC5768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE39F4CD-FBA8-4333-8F0F-7D61A4AC5768}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{23733AA0-84F8-4F3A-8BC0-E239C1350326} = {F5E027E5-311D-46C5-890B-753FBF724C3A}
 		{559A7A9C-F4E3-493C-88D0-D90D4CFB6586} = {F5E027E5-311D-46C5-890B-753FBF724C3A}
+		{CE39F4CD-FBA8-4333-8F0F-7D61A4AC5768} = {68D7CEF4-260F-4E44-A63B-88913552791A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9195BD2-B659-447A-961A-12C8CAFAD7AC}
