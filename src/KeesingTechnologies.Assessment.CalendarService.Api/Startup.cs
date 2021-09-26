@@ -52,14 +52,12 @@ namespace KeesingTechnologies.Assessment.CalendarService.Api
             });
             services.AddHttpContextAccessor();
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
-            services.AddHealthChecks().AddCheck<EventApiHealthCheker>("example_health_check"); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EventContext context)
         {
-            if (env.IsDevelopment())
-            {
+
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
@@ -67,19 +65,16 @@ namespace KeesingTechnologies.Assessment.CalendarService.Api
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Keesing Technologies Assessment, Calendar API");
                     c.RoutePrefix = string.Empty;
                 });
-            }
+
 
             context.Database.EnsureCreated();
-
-            app.UseHttpsRedirection();
+            //commented becuase the SSL error on testing environment
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapHealthChecks("/health");
-            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

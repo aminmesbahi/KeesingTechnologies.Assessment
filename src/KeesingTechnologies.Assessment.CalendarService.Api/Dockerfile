@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["src/KeesingTechnologies.Assessment.CalendarService.Api/KeesingTechnologies.Assessment.CalendarService.Api.csproj", "src/KeesingTechnologies.Assessment.CalendarService.Api/"]
+COPY ["src/KeesingTechnologies.Assessment.CalendarService.Domain/KeesingTechnologies.Assessment.CalendarService.Domain.csproj", "src/KeesingTechnologies.Assessment.CalendarService.Domain/"]
 RUN dotnet restore "src/KeesingTechnologies.Assessment.CalendarService.Api/KeesingTechnologies.Assessment.CalendarService.Api.csproj"
 COPY . .
 WORKDIR "/src/src/KeesingTechnologies.Assessment.CalendarService.Api"
